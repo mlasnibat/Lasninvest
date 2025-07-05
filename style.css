@@ -1,418 +1,11 @@
-
-/* --- SOBRE NOSOTROS MOBILE OPTIMIZADO --- */
-@media (max-width: 600px) {
-  .sobre-nosotros-section {
-    position: relative !important;
-    overflow: hidden !important;
-    padding-top: 7em !important;
-    padding-bottom: 2em !important;
-    min-height: 420px !important;
-    z-index: 1;
-  }
- 
-  .sobre-nosotros-principal,
-  .sobre-nosotros-secundario,
-  #que-hacemos .section-description,
-  #que-hacemos .grid-item p {
-    font-size: 0.85em !important;
-  }
-  .contact-grid, .contact-form {
-    width: 100% !important;
-    max-width: 100% !important;
-    overflow-x: hidden !important;
-    box-sizing: border-box !important;
-  }
+/* --- GLOBAL BODY & HTML OVERFLOW FIX --- */
+/* This is crucial to prevent horizontal scrolling caused by elements extending beyond the viewport. */
+html, body {
+    max-width: 100vw; /* Ensures the root element doesn't exceed viewport width */
+    overflow-x: hidden; /* Prevents horizontal scrollbars */
 }
 
-/* JS to add -webkit-touch-callout to html on iOS */
-@media (min-width: 901px) {
-  .modal-perfil-content {
-    position: relative;
-    left: -80px;
-  }
-}
-.perfil-btn {
-  color: var(--primary-blue) !important;
-  border: 1px solid var(--primary-blue) !important;
-  background: transparent !important;
-  font-weight: 600;
-  transition: background 0.3s, color 0.3s, border-color 0.3s;
-}
-.perfil-btn:hover {
-  background: rgba(11,33,56,0.07) !important;
-  color: var(--secondary-blue) !important;
-  border-color: var(--secondary-blue) !important;
-}
-/* --- MODAL PERFIL FUNDADOR --- */
-.modal-perfil {
-  display: none;
-  position: fixed;
-  z-index: 2000;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0,0,0,0.45);
-  justify-content: center;
-  align-items: flex-start;
-  padding-top: 9vh;
-  transition: opacity 0.2s;
-}
-.modal-perfil-content {
-  background: #fff;
-  border-radius: 16px;
-  padding: 2.2em 1.5em 1.5em 1.5em;
-  max-width: 340px;
-  width: 92vw;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-  text-align: center;
-  position: relative;
-  animation: modalPerfilFadeIn 0.2s;
-}
-.modal-perfil-cerrar {
-  position: absolute;
-  top: 12px;
-  right: 18px;
-  font-size: 2em;
-  color: #888;
-  cursor: pointer;
-  font-weight: bold;
-  transition: color 0.2s;
-}
-.modal-perfil-cerrar:hover {
-  color: #007bff;
-}
-.modal-perfil-img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 1em;
-}
-@keyframes modalPerfilFadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-@media (max-width: 900px) {
-  .sobre-nosotros-col-img {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .perfil-btn {
-    margin-top: 0.7em !important;
-    margin-bottom: 0.7em !important;
-  }
-}
-/* (Eliminadas reglas móviles duplicadas para evitar conflictos) */
-.sobre-nosotros-nombre {
-  margin-bottom: 0.2em;
-}
-@media (max-width: 600px) {
-  .sobre-nosotros-nombre {
-    margin-bottom: -1.0em !important;
-  }
-  .sobre-nosotros-tercero {
-    margin-top: 0.2em !important;
-  }
-}
-/* --- SOBRE NOSOTROS CLEANUP --- */
-.sobre-nosotros-section {
-  position: relative;
-  overflow: visible;
-  padding-top: 1.2em !important;
-  padding-bottom: 1.2em !important;
-  z-index: 1;
-}
-.sobre-nosotros-bg-oval {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 680px; /* Solo PC: valor original */
-  min-height: 680px;
-  max-height: none;
-  background: #e0ddd6;
-  border-bottom-left-radius: 50% 20%;
-  border-bottom-right-radius: 50% 20%;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  z-index: 0;
-  pointer-events: none;
-  overflow-x: hidden;
-}
-.sobre-nosotros-section {
-  min-height: 680px;
-}
-.sobre-nosotros-section .container {
-  position: relative;
-  z-index: 2;
-}
-.sobre-nosotros-flex {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 60px;
-  width: 100%;
-}
-.sobre-nosotros-col-img {
-  flex: 0 0 260px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  margin-top: 8.5em; /* Solo en PC: baja la imagen */
-}
-@media (max-width: 900px) {
-  .sobre-nosotros-col-img {
-    margin-top: 0 !important; /* En móvil/tablet: vuelve a la posición original */
-  }
-}
-.sobre-nosotros-img-ml {
-  width: 100%;
-  max-width: 260px;
-  border-radius: 12px;
-  object-fit: cover;
-  display: block;
-}
-.sobre-nosotros-tercero {
-  font-size: 0.85em;
-  color: #555;
-  margin-top: 2.2em; /* Solo en PC: baja la frase */
-  text-align: center;
-  display: block;
-}
-@media (max-width: 900px) {
-  .sobre-nosotros-tercero {
-    margin-top: 1.2em !important; /* En móvil/tablet: vuelve a la posición original */
-  }
-}
-
-.sobre-nosotros-col-text {
-  flex: 1 1 0%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  min-width: 0;
-}
-.sobre-nosotros-col-text h2 {
-  font-size: 2.2em;
-  margin-top: 0.5em;
-  margin-bottom: 0.7em;
-  display: block;
-  font-weight: 700;
-}
-.sobre-nosotros-principal {
-  font-size: 1.08em;
-  margin-bottom: 1.6em;
-  display: block;
-}
-.sobre-nosotros-secundario {
-  font-size: 0.98em;
-  margin-top: 2.2em;
-  margin-left: 2.5em;
-  width: 85%;
-  display: block;
-  text-align: left;
-}
-@media (max-width: 900px) {
-  .sobre-nosotros-flex {
-    flex-direction: column;
-    gap: 0;
-    align-items: center;
-  }
-  .sobre-nosotros-col-img {
-    margin-top: 0; /* En móvil/tablet: vuelve a la posición original */
-    margin-bottom: 1.2em;
-  }
-  .sobre-nosotros-tercero {
-    margin-top: 1.2em; /* En móvil/tablet: vuelve a la posición original */
-  }
-  .sobre-nosotros-col-text {
-    align-items: flex-start;
-    width: 100%;
-    padding: 0 8px;
-  }
-  
-}
-
-
-/* Solo iOS: reducir font-size base aún más (fuera del media query para máxima prioridad) */
-@media (max-width: 600px) and (hover: none) and (pointer: coarse) {
-  @supports (-webkit-touch-callout: none) {
-    html {
-      font-size: 13px !important;
-    }
-  }
-}
-
-/* Hero alineado con el logo y el contenido */
-.hero-section {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    color: var(--white);
-    min-height: 500px;
-    position: relative;
-    padding: 0;
-}
-/* HERO ALINEADO A LA DERECHA DEL CONTAINER */
-.hero-content {
-    position: relative;
-    z-index: 2;
-    text-align: left;
-    align-items: flex-start;
-    max-width: 600px;
-    width: 100%;
-    margin-top: -80px; /* Más arriba */
-    margin-bottom: 0;
-    margin-left: 0;
-    padding-left: 0;
-}
-@media (max-width: 1200px) {
-  .hero-content {
-    margin-left: 0;
-    padding-left: 0;
-  }
-}
-@media (max-width: 768px) {
-  .hero-section {
-    min-height: 350px;
-    padding: 0;
-  }
-  .hero-content {
-    text-align: left;
-    align-items: flex-start;
-    margin-left: 0;
-    max-width: 100%;
-    padding-left: 0;
-  }
-}
-.hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    z-index: 1;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-@media (min-width: 1200px) {
-  .hero-content {
-    padding-left: 0;
-    margin-left: 0;
-  }
-}
-@media (max-width: 768px) {
-  .hero-section {
-    min-height: 350px;
-    padding: 0;
-  }
-  .hero-content {
-    text-align: left;
-    align-items: flex-start;
-    margin-left: 0;
-    max-width: 100%;
-    padding-left: 0;
-  }
-}
-
-/* Botón hero azul */
-/* Botón hero transparente y ovalado */
-.hero-btn {
-    background: transparent;
-    color: var(--white);
-    border: 1px solid var(--white);
-    font-weight: normal;
-    transition: background 0.3s, color 0.3s, border-color 0.3s;
-    margin-top: 20px;
-    border-radius: 999px; /* Ovalado */
-    padding: 12px 38px;
-    font-size: 1.1em;
-}
-.hero-btn:hover {
-    background: rgba(255,255,255,0.12);
-    color: var(--secondary-blue);
-    border-color: var(--secondary-blue);
-}
-/* Header efecto scroll */
-.main-header.scrolled {
-    background-color: rgba(11, 33, 56, 0.95); /* Azul oscuro, casi opaco */
-    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
-    transition: background-color 0.3s, box-shadow 0.3s;
-}
-/* Footer Links y Redes Sociales */
-.footer-links {
-    margin-bottom: 10px;
-    font-size: 1em;
-}
-.footer-links a {
-    color: var(--white);
-    margin: 0 8px;
-    text-decoration: underline;
-    transition: color 0.3s;
-}
-.footer-links a:hover {
-    color: var(--secondary-blue);
-}
-.footer-social {
-    margin-bottom: 10px;
-}
-.footer-social a {
-    color: var(--white);
-    font-size: 1.5em;
-    margin: 0 10px;
-    transition: color 0.3s;
-}
-.footer-social a:hover {
-    color: var(--secondary-blue);
-}
-.main-footer p {
-    margin-top: 10px;
-    font-size: 0.95em;
-}
-/* Testimonio */
-.testimonial-box {
-    background: var(--white);
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    padding: 35px 30px;
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: left;
-}
-.testimonial-text {
-    font-size: 1.2em;
-    color: var(--primary-blue);
-    margin-bottom: 20px;
-    font-style: italic;
-}
-.testimonial-client {
-    display: flex;
-    align-items: center;
-}
-.testimonial-img {
-    border: 2px solid var(--secondary-blue);
-}
-/* Precios de servicios */
-.service-price {
-    font-size: 1.3em;
-    color: var(--secondary-blue);
-    font-weight: bold;
-    margin: 10px 0 18px 0;
-}
-/* Variables de Colores (Opcional, pero buena práctica) */
+/* --- VARIABLES --- */
 :root {
     --primary-blue: #0b2138;
     --secondary-blue: #007bff;
@@ -422,7 +15,7 @@
     --text-light: #f4f4f4;
 }
 
-/* Reset Básico y Estilos Generales */
+/* --- BASIC RESET & GENERAL STYLES --- */
 * {
     margin: 0;
     padding: 0;
@@ -430,13 +23,19 @@
 }
 
 body {
-    font-family: 'Montserrat', sans-serif; /* Usa la fuente Montserrat de Google Fonts */
+    font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     color: var(--text-dark);
-    zoom: 1.3; /* Slight zoom for the whole page */
     background-color: var(--white);
-    max-width: 100vw;
-    overflow-x: hidden;
+    /* REMOVED GLOBAL zoom: 1.3; - This was causing significant mobile layout issues. */
+    /* It's better to control sizing with responsive units and media queries. */
+}
+
+/* Optional: Re-apply zoom for PC only if desired */
+@media (min-width: 901px) {
+  body {
+    zoom: 1.3; /* Apply zoom only for larger screens/PC */
+  }
 }
 
 a {
@@ -500,15 +99,15 @@ p {
     background-color: #0056b3; /* Un tono más oscuro de secondary-blue */
 }
 
-/* Header y Navegación */
+/* --- HEADER & NAVIGATION --- */
 .main-header {
     background-color: var(--white);
-    padding: 0; /* Sin padding vertical extra */
+    padding: 0;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: sticky; /* Hace que la barra de navegación se pegue */
+    position: sticky;
     top: 0;
     width: 100%;
-    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    z-index: 1000;
     min-height: 60px;
 }
 
@@ -531,7 +130,7 @@ p {
 }
 
 .logo img {
-    height: 80px; /* Logo más grande */
+    height: 80px;
     margin-right: 0;
     margin-top: -20px;
     margin-bottom: -20px;
@@ -557,7 +156,7 @@ p {
     color: var(--secondary-blue);
 }
 
-/* Hamburger para móvil (inicialmente oculto en escritorio) */
+/* Hamburger for mobile (initially hidden on desktop) */
 .hamburger {
     display: none;
     cursor: pointer;
@@ -575,56 +174,385 @@ p {
     transition: all 0.3s ease;
 }
 
-
-/* Sección Hero */
+/* --- HERO SECTION --- */
 .hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Efecto Parallax */
+    background-attachment: fixed;
     color: var(--white);
-    text-align: center;
-    padding: 200px 20px 180px 20px; /* Más alto arriba y abajo */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 700px; /* Much taller hero section */
+    min-height: 500px; /* Adjusted later for PC */
     position: relative;
+    padding: 0; /* Adjusted later for PC */
 }
 
-.hero-section::before { /* Capa oscura para mejor legibilidad del texto */
+.hero-section::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* Ajusta la opacidad */
+    background-color: rgba(0, 0, 0, 0.4);
     z-index: 1;
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
+    text-align: left;
+    align-items: flex-start;
+    max-width: 600px;
+    width: 100%;
+    margin-top: -80px; /* More up */
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-left: 0;
 }
 
 .hero-content h1 {
-    font-size: 4em;
+    font-size: 4em; /* Adjusted later for mobile */
     margin-bottom: 10px;
-    color: var(--white); /* Sobrescribe el color primario para el hero */
-}
-
-.hero-content p {
-    font-size: 1.5em;
     color: var(--white);
 }
 
-/* Estilos de Contenido con Imagen (¿Quiénes Somos?) */
-/* Ajuste para evitar overflow en móviles */
+.hero-content p {
+    font-size: 1.5em; /* Adjusted later for mobile */
+    color: var(--white);
+}
+
+/* Hero Button */
+.hero-btn {
+    background: transparent;
+    color: var(--white);
+    border: 1px solid var(--white);
+    font-weight: normal;
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
+    margin-top: 20px;
+    border-radius: 999px;
+    padding: 12px 38px;
+    font-size: 1.1em;
+}
+.hero-btn:hover {
+    background: rgba(255,255,255,0.12);
+    color: var(--secondary-blue);
+    border-color: var(--secondary-blue);
+}
+
+/* --- ABOUT US (SOBRE NOSOTROS) SECTION --- */
+
+/* --- SOBRE NOSOTROS CLEANUP (PC STYLES) --- */
+/* These rules are for PC and remain untouched. */
+.sobre-nosotros-section {
+  position: relative;
+  overflow: visible; /* PC version allows overflow, mobile version sets it to hidden */
+  padding-top: 1.2em !important;
+  padding-bottom: 1.2em !important;
+  min-height: 680px; /* PC min-height */
+  z-index: 1;
+}
+.sobre-nosotros-bg-oval {
+  position: absolute;
+  top: 0;
+  left: 0; /* PC: left is 0 */
+  width: 100%; /* PC: width is 100% */
+  height: 680px; /* Solo PC: valor original */
+  min-height: 680px;
+  max-height: none;
+  background: #e0ddd6;
+  border-bottom-left-radius: 50% 20%; /* PC: different radius */
+  border-bottom-right-radius: 50% 20%;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow-x: hidden;
+}
+.sobre-nosotros-section .container {
+  position: relative;
+  z-index: 2;
+}
+.sobre-nosotros-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 60px;
+  width: 100%;
+}
+.sobre-nosotros-col-img {
+  flex: 0 0 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 8.5em; /* Solo en PC: baja la imagen */
+}
+.sobre-nosotros-img-ml {
+  width: 100%;
+  max-width: 260px;
+  border-radius: 12px;
+  object-fit: cover;
+  display: block;
+}
+.sobre-nosotros-tercero {
+  font-size: 0.85em;
+  color: #555;
+  margin-top: 2.2em; /* Solo en PC: baja la frase */
+  text-align: center;
+  display: block;
+}
+
+.sobre-nosotros-col-text {
+  flex: 1 1 0%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 0;
+}
+.sobre-nosotros-col-text h2 {
+  font-size: 2.2em;
+  margin-top: 0.5em;
+  margin-bottom: 0.7em;
+  display: block;
+  font-weight: 700;
+}
+.sobre-nosotros-principal {
+  font-size: 1.08em;
+  margin-bottom: 1.6em;
+  display: block;
+}
+.sobre-nosotros-secundario {
+  font-size: 0.98em;
+  margin-top: 2.2em;
+  margin-left: 2.5em;
+  width: 85%;
+  display: block;
+  text-align: left;
+}
+
+/* --- SOBRE NOSOTROS MOBILE OPTIMIZED (SECTION & INNER ELEMENTS) --- */
+/* This block retains specific adjustments for very small screens (<= 600px) */
+@media (max-width: 600px) {
+  .sobre-nosotros-section {
+    position: relative !important;
+    overflow: hidden !important;
+    padding-top: 5em !important; /* ADJUSTED: Increased padding to bring content down */
+    padding-bottom: 7em !important;
+    min-height: 480px !important;
+    z-index: 1; /* Ensure content is above oval */
+  }
+  .sobre-nosotros-nombre {
+    margin-bottom: 0.2em !important;
+  }
+  .sobre-nosotros-tercero {
+    margin-top: 0.2em !important;
+  }
+}
+
+/* --- GENERAL MOBILE OPTIMIZATIONS (DEFAULT FOR ANDROID/TABLETS) --- */
+/* This media query applies to all devices up to 900px.
+   It sets common mobile styles for text, layout, and the base oval configuration. */
+@media (max-width: 900px) {
+  /* General mobile font sizes */
+  .sobre-nosotros-principal,
+  .sobre-nosotros-secundario,
+  #que-hacemos .section-description,
+  #que-hacemos .grid-item p {
+    font-size: 0.85em;
+  }
+  /* Contact grid and form adjustments */
+  .contact-grid, .contact-form {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box; /* Ensures padding/border are included in width calculation */
+  }
+  /* Perfil button margin for mobile */
+  .perfil-btn {
+    margin-top: 0.7em !important;
+    margin-bottom: 0.7em !important;
+  }
+  /* Layout adjustments for section flexbox */
+  .sobre-nosotros-flex {
+    flex-direction: column;
+    gap: 0;
+    align-items: center; /* Centers the image and text columns horizontally */
+  }
+  .sobre-nosotros-col-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the image within its column */
+    margin-top: 0 !important;
+    margin-bottom: 1.2em;
+    width: 100%; /* Ensure column takes available width for centering children */
+  }
+  /* Adapt image specifically for mobile within its column */
+  .sobre-nosotros-img-ml {
+    width: 100%; /* Make image fill its parent width */
+    max-width: 350px; /* NEW: Limit image size on mobile for better centering and fit */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove any inline-block spacing issues */
+    border-radius: 12px; /* Ensure mobile image also has rounded corners */
+    object-fit: cover;
+  }
+
+  .sobre-nosotros-col-text {
+    align-items: flex-start;
+    width: 100%;
+    padding: 0 15px; /* ADJUSTED: More sensible padding for mobile content */
+    box-sizing: border-box; /* Ensure padding is included in width */
+  }
+  /* Default sobre-nosotros-section padding/min-height for mobile (can be overridden by 600px) */
+  .sobre-nosotros-section {
+    padding-top: 5em; /* ADJUSTED: Increased padding for general mobile */
+    padding-bottom: 7em;
+    min-height: 480px;
+    z-index: 1; /* Ensure content is above oval */
+  }
+  /* Ensure the H2 has proper spacing at the top of the text column on mobile */
+  .sobre-nosotros-col-text h2 {
+    margin-top: 0.5em !important;
+  }
+}
+
+/* --- MOBILE OVAL BACKGROUND CONFIGURATIONS --- */
+/* This block defines the DEFAULT oval style for all mobile devices (Android/General Mobile). */
+/* It MUST come AFTER the PC .sobre-nosotros-bg-oval definition. */
+@media (max-width: 900px) {
+  .sobre-nosotros-bg-oval {
+    /* Common properties for mobile oval (overrides PC defaults) */
+    position: absolute;
+    top: 0;
+    left: 50%; /* Center the oval on mobile */
+    transform: translateX(-50%);
+    background: #e0ddd6;
+    z-index: 0;
+    pointer-events: none;
+    /* overflow-x: hidden; <--- Usually not needed here if html/body have it */
+    display: block;
+
+    /* KEY CHANGE: Height is 100% of the parent section */
+    height: 100%;
+    /* No min/max-height for the oval itself, section's height controls it */
+
+    /* Android / General Mobile SPECIFIC properties (wider oval, consistent curve depth) */
+    /* ADJUSTED: Changed from 200vw to 100vw to prevent horizontal scroll issues on Android */
+    width: 100vw;
+    min-width: 100vw;
+    max-width: 100vw;
+
+    /* KEY CHANGE: Fixed 'em' value for vertical radius for consistent depth */
+    border-bottom-left-radius: 50% 5em;
+    border-bottom-right-radius: 50% 5em;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}
+
+/* --- iOS SPECIFIC OVAL CONFIGURATION (THE OVERRIDE) --- */
+/* This targets iOS devices ONLY and overrides the general mobile oval.
+   It MUST come AFTER the general mobile oval rules. */
+@media (max-width: 900px) and (hover: none) and (pointer: coarse) {
+  @supports (-webkit-touch-callout: none) {
+    .sobre-nosotros-bg-oval {
+      /* iOS-specific width. Use !important to ensure override. */
+      width: 100vw !important; /* Narrower for iOS */
+      min-width: 100vw !important;
+      max-width: 100vw !important;
+
+      /* KEY CHANGE: Fixed 'em' value for vertical radius, same as Android for consistency */
+      border-bottom-left-radius: 50% 5em !important; /* Consistent depth with Android */
+      border-bottom-right-radius: 50% 5em !important;
+      /* Height is inherited from the general mobile rule, no need to re-declare with !important */
+    }
+    /* Your existing iOS font-size hack for html - KEEP THIS AS IS */
+    html {
+      font-size: 13px !important;
+    }
+  }
+}
+
+/* --- MODAL PERFIL FUNDADOR --- */
+/* (Keeping these as is, no changes were requested here) */
+@media (min-width: 901px) {
+  .modal-perfil-content {
+    position: relative;
+    left: -80px;
+  }
+}
+.perfil-btn {
+  color: var(--primary-blue) !important;
+  border: 1px solid var(--primary-blue) !important;
+  background: transparent !important;
+  font-weight: 600;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+.perfil-btn:hover {
+  background: rgba(11,33,56,0.07) !important;
+  color: var(--secondary-blue) !important;
+  border-color: var(--secondary-blue) !important;
+}
+.modal-perfil {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.45);
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 9vh;
+  transition: opacity 0.2s;
+}
+.modal-perfil-content {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2.2em 1.5em 1.5em 1.5em;
+  max-width: 340px;
+  width: 92vw;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  text-align: center;
+  position: relative;
+  animation: modalPerfilFadeIn 0.2s;
+}
+.modal-perfil-cerrar {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 2em;
+  color: #888;
+  cursor: pointer;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+.modal-perfil-cerrar:hover {
+  color: #007bff;
+}
+.modal-perfil-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1em;
+}
+@keyframes modalPerfilFadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+
+/* --- LAYOUT & COMPONENTS --- */
+/* Content with Image (Quiénes Somos?) */
 .content-wrapper {
     display: flex;
     align-items: center;
-    gap: 40px; /* Espacio entre el texto y la imagen */
-    flex-wrap: wrap; /* Permite que los elementos se apilen en pantallas pequeñas */
+    gap: 40px;
+    flex-wrap: wrap;
     width: 100%;
     box-sizing: border-box;
 }
@@ -632,15 +560,15 @@ p {
 .content-wrapper .text-content,
 .content-wrapper .image-content {
     flex: 1;
-    min-width: 0; /* Permite que el contenido se reduzca en móviles */
+    min-width: 0;
     box-sizing: border-box;
     word-break: break-word;
 }
 
 .image-overlay-wrapper {
     position: relative;
-    overflow: hidden; /* Asegura que el overlay no se desborde */
-    border-radius: 8px; /* Bordes redondeados para las imágenes */
+    overflow: hidden;
+    border-radius: 8px;
 }
 
 .image-overlay-wrapper img {
@@ -656,7 +584,7 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(11, 33, 56, 0.7); /* Azul oscuro con transparencia */
+    background-color: rgba(11, 33, 56, 0.7);
     border-radius: 8px;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -666,16 +594,10 @@ p {
     opacity: 1;
 }
 
-/* Efecto hover si lo deseas
-.image-overlay-wrapper:hover .image-overlay {
-    opacity: 0.5;
-}
-*/
-
-/* Grid de 2 Columnas (¿Qué Hacemos?) */
+/* 2-Column Grid (Qué Hacemos?) */
 .grid-2-columns {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 2 columnas que se adaptan */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
     margin-top: 30px;
     text-align: center;
@@ -694,10 +616,10 @@ p {
     color: var(--primary-blue);
 }
 
-/* Grid de Servicios (Nuestros Servicios) */
+/* Services Grid (Nuestros Servicios) */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 3 columnas que se adaptan */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     margin-top: 30px;
 }
@@ -721,7 +643,7 @@ p {
     margin-bottom: 10px;
 }
 
-/* Sección Contacto */
+/* Contact Section */
 .contact-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -734,8 +656,8 @@ p {
     width: 100%;
     padding: 12px;
     margin-bottom: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Bordes claros para contraste */
-    background-color: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.1);
     color: var(--white);
     border-radius: 5px;
     font-size: 1em;
@@ -786,7 +708,7 @@ p {
 }
 
 .map-container iframe {
-    display: block; /* Elimina espacio extra debajo del iframe */
+    display: block;
 }
 
 /* Footer */
@@ -797,112 +719,188 @@ p {
     padding: 30px 0;
     font-size: 0.9em;
 }
+.footer-links {
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+.footer-links a {
+    color: var(--white);
+    margin: 0 8px;
+    text-decoration: underline;
+    transition: color 0.3s;
+}
+.footer-links a:hover {
+    color: var(--secondary-blue);
+}
+.footer-social {
+    margin-bottom: 10px;
+}
+.footer-social a {
+    color: var(--white);
+    font-size: 1.5em;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+.footer-social a:hover {
+    color: var(--secondary-blue);
+}
+.main-footer p {
+    margin-top: 10px;
+    font-size: 0.95em;
+}
 
-/* Responsividad (Media Queries) */
+/* Testimonial */
+.testimonial-box {
+    background: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 35px 30px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+.testimonial-text {
+    font-size: 1.2em;
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+    font-style: italic;
+}
+.testimonial-client {
+    display: flex;
+    align-items: center;
+}
+.testimonial-img {
+    border: 2px solid var(--secondary-blue);
+}
+
+/* Service Prices */
+.service-price {
+    font-size: 1.3em;
+    color: var(--secondary-blue);
+    font-weight: bold;
+    margin: 10px 0 18px 0;
+}
+
+/* --- RESPONSIVENESS (MEDIA QUERIES) --- */
+
+/* For Hero Section and general layout responsiveness */
+@media (max-width: 1200px) {
+  .hero-content {
+    margin-left: 0;
+    padding-left: 0;
+  }
+}
+
 @media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+  /* Hero Section Mobile Adjustments */
+  .hero-section {
+    min-height: 350px;
+    padding: 0;
+  }
+  .hero-content {
+    text-align: left;
+    align-items: flex-start;
+    margin-left: 0;
+    max-width: 100%;
+    padding-left: 0;
+    margin-top: -180px !important; /* Force much higher in mobile */
+  }
+  .hero-content h1 {
+    font-size: 1.5em;
+  }
+  .hero-content p,
+  .hero-content .hero-subtitle {
+    font-size: 1em;
+  }
+  .hero-btn {
+    padding: 7px 22px;
+    font-size: 0.95em;
+    margin-top: 14px;
+  }
 
-    .nav-links {
-        display: none; /* Ocultar en móvil por defecto */
-        flex-direction: column;
-        width: 100%;
-        margin-top: 15px;
-        text-align: center;
-        background-color: var(--white);
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        position: absolute;
-        top: 70px; /* Debajo del header */
-        left: 0;
-        padding-bottom: 10px;
-    }
+  /* Navigation Mobile */
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nav-links {
+    display: none; /* Hide by default on mobile */
+    flex-direction: column;
+    width: 100%;
+    margin-top: 15px;
+    text-align: center;
+    background-color: var(--white);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: absolute;
+    top: 70px; /* Below the header */
+    left: 0;
+    padding-bottom: 10px;
+  }
+  .nav-links.active { /* Class to show it with JS */
+    display: flex;
+  }
+  .nav-links li {
+    margin: 10px 0;
+    width: 100%;
+    padding: 5px 0;
+  }
+  .nav-links a {
+    display: block;
+  }
+  .hamburger {
+    display: flex; /* Show the hamburger on mobile */
+    position: absolute;
+    right: 20px;
+    top: 25px;
+  }
 
-    .nav-links.active { /* Clase para mostrarlo con JS */
-        display: flex;
-    }
+  /* General Text & Layout Adjustments for smaller screens */
+  h2 {
+    font-size: 1.3em;
+  }
+  h3 {
+    font-size: 1.1em;
+  }
+  p,
+  .section-description,
+  .service-price,
+  .testimonial-text {
+    font-size: 0.98em;
+  }
 
-    .nav-links li {
-        margin: 10px 0;
-        width: 100%;
-        padding: 5px 0;
-    }
+  /* Content Wrapper adjustments */
+  .content-wrapper {
+    flex-direction: column; /* Stack on small screens */
+    width: 100%;
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+  .content-wrapper .text-content {
+    max-width: 100%;
+    padding-left: 12px;
+    padding-right: 12px;
+    box-sizing: border-box;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
 
-    .nav-links a {
-        display: block;
-    }
+  /* Grid Adjustments for smaller screens */
+  .grid-2-columns,
+  .services-grid,
+  .contact-grid {
+    grid-template-columns: 1fr; /* Single column on small screens */
+  }
 
-    .hamburger {
-        display: flex; /* Mostrar el hamburger en móvil */
-        position: absolute;
-        right: 20px;
-        top: 25px;
-    }
+  /* Section Padding for smaller screens */
+  .section-padded {
+    padding: 60px 0;
+  }
+}
 
-    .hero-content {
-        margin-top: -180px !important; /* Force much higher in mobile */
-    }
-    .hero-content h1 {
-        font-size: 1.5em;
-    }
-    .hero-content p,
-    .hero-content .hero-subtitle {
-        font-size: 1em;
-    }
-    .hero-btn {
-        padding: 7px 22px;
-        font-size: 0.95em;
-        margin-top: 14px;
-    }
-    }
-
-    h2 {
-        font-size: 1.3em;
-    }
-
-    h3 {
-        font-size: 1.1em;
-    }
-
-    p,
-    .section-description,
-    .service-price,
-    .testimonial-text {
-        font-size: 0.98em;
-    }
-
-    .content-wrapper {
-        flex-direction: column; /* Apilar en pantallas pequeñas */
-        width: 100%;
-        max-width: 100%;
-        padding-left: 0;
-        padding-right: 0;
-        box-sizing: border-box;
-        overflow-x: hidden;
-    }
-
-    .content-wrapper .text-content {
-        max-width: 100%;
-        padding-left: 12px;
-        padding-right: 12px;
-        box-sizing: border-box;
-        word-break: break-word;
-        overflow-wrap: break-word;
-    }
-
-    .grid-2-columns,
-    .services-grid,
-    .contact-grid {
-        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
-    }
-
-    .section-padded {
-        padding: 60px 0;
-    }
-
-
-/* Animación Hamburger (opcional, para JS) */
+/* Animation Hamburger (optional, for JS) */
 .hamburger.open .bar:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
 }
@@ -911,60 +909,4 @@ p {
 }
 .hamburger.open .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
-}
-
-/* --- ANDROID / GENERAL MOBILE OVAL CONFIGURATION (FALLBACK) --- */
-/* This defines the default oval shape for all mobile devices,
-   including Android, unless specifically overridden by the iOS rule. */
-@media (max-width: 900px) {
-  .sobre-nosotros-bg-oval {
-    /* Common mobile properties (may override PC, but won't be overridden by iOS) */
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 1100px;
-    min-height: 900px;
-    max-height: 1500px;
-    background: #e0ddd6;
-    z-index: 0;
-    pointer-events: none;
-    overflow-x: hidden;
-    display: block;
-
-    /* Android / General Mobile SPECIFIC properties (wider oval) */
-    width: 200vw;
-    min-width: 200vw;
-    max-width: 200vw;
-    border-bottom-left-radius: 50% 25%;
-    border-bottom-right-radius: 50% 25%;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    /* IMPORTANT: NO !important HERE. This is what allows iOS to override. */
-  }
-}
-
-/* --- iOS SPECIFIC OVAL CONFIGURATION (FOR PRODUCTION) --- */
-/* This targets actual iOS devices (iPhone, iPad) and overrides the general mobile oval.
-   It MUST come AFTER any general mobile oval rules. */
-@media (max-width: 900px) and (hover: none) and (pointer: coarse) {
-  @supports (-webkit-touch-callout: none) {
-    .sobre-nosotros-bg-oval {
-      /* iOS-specific width and border-radius. Use !important to ensure override. */
-      width: 100vw !important; /* Narrower for iOS */
-      min-width: 100vw !important;
-      max-width: 100vw !important;
-      height: 1250px;
-      min-height: 900px;
-      max-height: 1500px;
-      border-bottom-left-radius: 50% 6% !important; /* Less pronounced curve for iOS */
-      border-bottom-right-radius: 50% 6% !important;
-      /* If iOS needs a different height, add it here with !important: */
-      /* height: XXXpx !important; */
-    }
-    /* Your existing iOS font-size hack for html - KEEP THIS AS IS */
-    html {
-      font-size: 13px !important;
-    }
-  }
 }
