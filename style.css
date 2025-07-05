@@ -183,6 +183,12 @@ p {
     padding: 0;
 }
 
+/* --- FIX FOR iOS BACKGROUND-ATTACHMENT BUG --- */
+/* This rule targets only devices where the JS has added the 'ios-device' class */
+.ios-device .hero-section {
+    background-attachment: scroll;
+}
+
 .hero-section::before {
     content: '';
     position: absolute;
