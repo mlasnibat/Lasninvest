@@ -1,0 +1,11 @@
+mi-sitio-lr-capital/
+├── index.html
+├── style.css
+├── script.js
+└── assets/
+    ├── images/
+    │   ├── hero-bg.jpg
+    │   ├── quienes-somos-img.jpg
+    │   ├── que-hacemos-img1.jpg
+    │   └── que-hacemos-img2.jpg
+    └── fonts/ (si descargas fuentes personalizadas, pero usaremos Google Fonts)
