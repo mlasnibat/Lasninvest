@@ -1,8 +1,10 @@
 /* --- GLOBAL BODY & HTML OVERFLOW FIX --- */
-/* This is crucial to prevent horizontal scrolling caused by elements extending beyond the viewport. */
-html, body {
-    max-width: 100vw; /* Ensures the root element doesn't exceed viewport width */
-    overflow-x: hidden; /* Prevents horizontal scrollbars */
+html {
+    overflow-x: hidden;
+}
+
+body {
+    max-width: 100vw;
 }
 
 /* --- VARIABLES --- */
@@ -13,6 +15,8 @@ html, body {
     --white: #ffffff;
     --text-dark: #333333;
     --text-light: #f4f4f4;
+    --whatsapp-green: #25D366;
+    --whatsapp-green-dark: #1DA851;
 }
 
 /* --- BASIC RESET & GENERAL STYLES --- */
@@ -27,15 +31,6 @@ body {
     line-height: 1.6;
     color: var(--text-dark);
     background-color: var(--white);
-    /* REMOVED GLOBAL zoom: 1.3; - This was causing significant mobile layout issues. */
-    /* It's better to control sizing with responsive units and media queries. */
-}
-
-/* Optional: Re-apply zoom for PC only if desired */
-@media (min-width: 901px) {
-  body {
-    zoom: 1.3; /* Apply zoom only for larger screens/PC */
-  }
 }
 
 a {
@@ -64,11 +59,11 @@ p {
 .container {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 0 4px; /* Much less lateral space for a zoomed look */
+    padding: 0 4px;
 }
 
 .section-padded {
-    padding: 80px 0; /* Padding superior e inferior para las secciones */
+    padding: 80px 0;
 }
 
 .bg-light-gray {
@@ -96,7 +91,7 @@ p {
 }
 
 .btn:hover {
-    background-color: #0056b3; /* Un tono más oscuro de secondary-blue */
+    background-color: #0056b3;
 }
 
 /* --- HEADER & NAVIGATION --- */
@@ -109,6 +104,7 @@ p {
     width: 100%;
     z-index: 1000;
     min-height: 60px;
+    will-change: transform;
 }
 
 .navbar {
@@ -156,7 +152,6 @@ p {
     color: var(--secondary-blue);
 }
 
-/* Hamburger for mobile (initially hidden on desktop) */
 .hamburger {
     display: none;
     cursor: pointer;
@@ -178,14 +173,14 @@ p {
 .hero-section {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     color: var(--white);
-    min-height: 500px; /* Adjusted later for PC */
+    min-height: 500px;
     position: relative;
-    padding: 0; /* Adjusted later for PC */
+    padding: 0;
 }
 
 .hero-section::before {
@@ -202,28 +197,27 @@ p {
 .hero-content {
     position: relative;
     z-index: 2;
-    text-align: left;
+    text-align: center;
     align-items: flex-start;
     max-width: 600px;
     width: 100%;
-    margin-top: -80px; /* More up */
+    margin-top: -80px;
     margin-bottom: 0;
-    margin-left: 0;
-    padding-left: 0;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
 .hero-content h1 {
-    font-size: 4em; /* Adjusted later for mobile */
+    font-size: 4em;
     margin-bottom: 10px;
     color: var(--white);
 }
 
 .hero-content p {
-    font-size: 1.5em; /* Adjusted later for mobile */
+    font-size: 1.5em;
     color: var(--white);
 }
 
-/* Hero Button */
 .hero-btn {
     background: transparent;
     color: var(--white);
@@ -241,28 +235,76 @@ p {
     border-color: var(--secondary-blue);
 }
 
-/* --- ABOUT US (SOBRE NOSOTROS) SECTION --- */
+/* --- Toggable Content Buttons --- */
+.btn-diferencia {
+    background: transparent;
+    color: var(--primary-blue);
+    border: 1px solid var(--primary-blue);
+    padding: 10px 20px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 1.5em;
+    font-size: 0.9em;
+}
 
-/* --- SOBRE NOSOTROS CLEANUP (PC STYLES) --- */
-/* These rules are for PC and remain untouched. */
+.btn-diferencia:hover {
+    background: rgba(11, 33, 56, 0.07);
+    border-color: var(--secondary-blue);
+    color: var(--secondary-blue);
+}
+
+.btn-gestion {
+    display: inline-block;
+    background: transparent;
+    border: 1px solid var(--primary-blue);
+    color: var(--primary-blue);
+    font-weight: 600;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin-top: 1em;
+    font-size: 0.9em;
+    border-radius: 999px;
+    transition: all 0.3s ease;
+}
+.btn-gestion:hover {
+    background: rgba(11, 33, 56, 0.07);
+    color: var(--secondary-blue);
+    border-color: var(--secondary-blue);
+}
+
+/* Generic Collapsible Content Wrapper */
+.collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+}
+
+.collapsible-content.open {
+    max-height: 500px;
+}
+
+
+/* --- ABOUT US (SOBRE NOSOTROS) SECTION --- */
 .sobre-nosotros-section {
   position: relative;
-  overflow: visible; /* PC version allows overflow, mobile version sets it to hidden */
+  overflow: visible;
   padding-top: 1.2em !important;
   padding-bottom: 1.2em !important;
-  min-height: 680px; /* PC min-height */
+  min-height: 680px;
   z-index: 1;
 }
 .sobre-nosotros-bg-oval {
   position: absolute;
   top: 0;
-  left: 0; /* PC: left is 0 */
-  width: 100%; /* PC: width is 100% */
-  height: 680px; /* Solo PC: valor original */
+  left: 0;
+  width: 100%;
+  height: 680px;
   min-height: 680px;
   max-height: none;
   background: #e0ddd6;
-  border-bottom-left-radius: 50% 20%; /* PC: different radius */
+  border-bottom-left-radius: 50% 20%;
   border-bottom-right-radius: 50% 20%;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
@@ -287,7 +329,7 @@ p {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  margin-top: 8.5em; /* Solo en PC: baja la imagen */
+  margin-top: 8.5em;
 }
 .sobre-nosotros-img-ml {
   width: 100%;
@@ -299,7 +341,7 @@ p {
 .sobre-nosotros-tercero {
   font-size: 0.85em;
   color: #555;
-  margin-top: 2.2em; /* Solo en PC: baja la frase */
+  margin-top: 2.2em;
   text-align: center;
   display: block;
 }
@@ -332,17 +374,20 @@ p {
   display: block;
   text-align: left;
 }
+.gestion-parrafo-oculto {
+    text-align: justify;
+    text-justify: inter-word;
+    margin-top: 1.5em;
+}
 
-/* --- SOBRE NOSOTROS MOBILE OPTIMIZED (SECTION & INNER ELEMENTS) --- */
-/* This block retains specific adjustments for very small screens (<= 600px) */
+
 @media (max-width: 600px) {
   .sobre-nosotros-section {
     position: relative !important;
     overflow: hidden !important;
-    padding-top: 5em !important; /* ADJUSTED: Increased padding to bring content down */
-    padding-bottom: 7em !important;
+    padding-top: 5em !important;
     min-height: 480px !important;
-    z-index: 1; /* Ensure content is above oval */
+    z-index: 1;
   }
   .sobre-nosotros-nombre {
     margin-bottom: 0.2em !important;
@@ -352,99 +397,87 @@ p {
   }
 }
 
-/* --- GENERAL MOBILE OPTIMIZATIONS (DEFAULT FOR ANDROID/TABLETS) --- */
-/* This media query applies to all devices up to 900px.
-   It sets common mobile styles for text, layout, and the base oval configuration. */
 @media (max-width: 900px) {
-  /* General mobile font sizes */
   .sobre-nosotros-principal,
-  .sobre-nosotros-secundario,
   #que-hacemos .section-description,
   #que-hacemos .grid-item p {
     font-size: 0.85em;
   }
-  /* Contact grid and form adjustments */
+  
+  .btn-diferencia {
+      align-self: center;
+      margin-top: 1em;
+  }
+
   .contact-grid, .contact-form {
     width: 100%;
     max-width: 100%;
     overflow-x: hidden;
-    box-sizing: border-box; /* Ensures padding/border are included in width calculation */
+    box-sizing: border-box;
   }
-  /* Perfil button margin for mobile */
   .perfil-btn {
     margin-top: 0.7em !important;
     margin-bottom: 0.7em !important;
   }
-  /* Layout adjustments for section flexbox */
   .sobre-nosotros-flex {
     flex-direction: column;
     gap: 0;
-    align-items: center; /* Centers the image and text columns horizontally */
+    align-items: center;
   }
   .sobre-nosotros-col-img {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centers the image within its column */
+    align-items: center;
     margin-top: 0 !important;
     margin-bottom: 1.2em;
-    width: 100%; /* Ensure column takes available width for centering children */
+    width: 100%;
   }
-  /* Adapt image specifically for mobile within its column */
   .sobre-nosotros-img-ml {
-    width: 100%; /* Make image fill its parent width */
-    max-width: 350px; /* NEW: Limit image size on mobile for better centering and fit */
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Remove any inline-block spacing issues */
-    border-radius: 12px; /* Ensure mobile image also has rounded corners */
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    display: block;
+    border-radius: 12px;
     object-fit: cover;
   }
 
   .sobre-nosotros-col-text {
     align-items: flex-start;
     width: 100%;
-    padding: 0 15px; /* ADJUSTED: More sensible padding for mobile content */
-    box-sizing: border-box; /* Ensure padding is included in width */
+    padding: 0 15px;
+    box-sizing: border-box;
   }
-  /* Default sobre-nosotros-section padding/min-height for mobile (can be overridden by 600px) */
+  
   .sobre-nosotros-section {
-    padding-top: 5em; /* ADJUSTED: Increased padding for general mobile */
-    padding-bottom: 7em;
+    padding-top: 5em;
+    padding-bottom: 3em; 
     min-height: 480px;
-    z-index: 1; /* Ensure content is above oval */
+    z-index: 1;
+    transition: padding-bottom 0.5s ease-in-out;
   }
-  /* Ensure the H2 has proper spacing at the top of the text column on mobile */
+  .sobre-nosotros-section.expanded {
+    padding-bottom: 7em;
+  }
+  
   .sobre-nosotros-col-text h2 {
     margin-top: 0.5em !important;
   }
 }
 
-/* --- MOBILE OVAL BACKGROUND CONFIGURATIONS --- */
-/* This block defines the DEFAULT oval style for all mobile devices (Android/General Mobile). */
-/* It MUST come AFTER the PC .sobre-nosotros-bg-oval definition. */
 @media (max-width: 900px) {
   .sobre-nosotros-bg-oval {
-    /* Common properties for mobile oval (overrides PC defaults) */
     position: absolute;
     top: 0;
-    left: 50%; /* Center the oval on mobile */
+    left: 50%;
     transform: translateX(-50%);
     background: #e0ddd6;
     z-index: 0;
     pointer-events: none;
-    /* overflow-x: hidden; <--- Usually not needed here if html/body have it */
     display: block;
-
-    /* KEY CHANGE: Height is 100% of the parent section */
     height: 100%;
-    /* No min/max-height for the oval itself, section's height controls it */
-
-    /* Android / General Mobile SPECIFIC properties (wider oval, consistent curve depth) */
-    /* ADJUSTED: Changed from 200vw to 100vw to prevent horizontal scroll issues on Android */
     width: 100vw;
     min-width: 100vw;
     max-width: 100vw;
-
-    /* KEY CHANGE: Fixed 'em' value for vertical radius for consistent depth */
     border-bottom-left-radius: 50% 5em;
     border-bottom-right-radius: 50% 5em;
     border-top-left-radius: 0;
@@ -452,23 +485,15 @@ p {
   }
 }
 
-/* --- iOS SPECIFIC OVAL CONFIGURATION (THE OVERRIDE) --- */
-/* This targets iOS devices ONLY and overrides the general mobile oval.
-   It MUST come AFTER the general mobile oval rules. */
 @media (max-width: 900px) and (hover: none) and (pointer: coarse) {
   @supports (-webkit-touch-callout: none) {
     .sobre-nosotros-bg-oval {
-      /* iOS-specific width. Use !important to ensure override. */
-      width: 100vw !important; /* Narrower for iOS */
+      width: 100vw !important;
       min-width: 100vw !important;
       max-width: 100vw !important;
-
-      /* KEY CHANGE: Fixed 'em' value for vertical radius, same as Android for consistency */
-      border-bottom-left-radius: 50% 5em !important; /* Consistent depth with Android */
+      border-bottom-left-radius: 50% 5em !important;
       border-bottom-right-radius: 50% 5em !important;
-      /* Height is inherited from the general mobile rule, no need to re-declare with !important */
     }
-    /* Your existing iOS font-size hack for html - KEEP THIS AS IS */
     html {
       font-size: 13px !important;
     }
@@ -476,7 +501,6 @@ p {
 }
 
 /* --- MODAL PERFIL FUNDADOR --- */
-/* (Keeping these as is, no changes were requested here) */
 @media (min-width: 901px) {
   .modal-perfil-content {
     position: relative;
@@ -547,24 +571,6 @@ p {
 
 
 /* --- LAYOUT & COMPONENTS --- */
-/* Content with Image (Quiénes Somos?) */
-.content-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.content-wrapper .text-content,
-.content-wrapper .image-content {
-    flex: 1;
-    min-width: 0;
-    box-sizing: border-box;
-    word-break: break-word;
-}
-
 .image-overlay-wrapper {
     position: relative;
     overflow: hidden;
@@ -594,7 +600,6 @@ p {
     opacity: 1;
 }
 
-/* 2-Column Grid (Qué Hacemos?) */
 .grid-2-columns {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -616,39 +621,49 @@ p {
     color: var(--primary-blue);
 }
 
-/* Services Grid (Nuestros Servicios) */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 30px;
+/* --- Contact Section Styles --- */
+/* CORRECTED RULE to reduce top padding for the Contacto section */
+#contacto.section-padded {
+    padding-top: 40px !important;
 }
 
-.service-item {
-    background-color: var(--white);
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    text-align: center;
+.contact-intro-text {
+    margin-bottom: 1.5em;
+    text-align: left;
 }
 
-.service-item i {
-    font-size: 3em;
-    color: var(--secondary-blue);
-    margin-bottom: 15px;
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--whatsapp-green);
+    color: var(--white);
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
 }
 
-.service-item h3 {
-    font-size: 1.4em;
-    margin-bottom: 10px;
+.btn-whatsapp:hover {
+    background-color: var(--whatsapp-green-dark);
+    color: var(--white);
 }
 
-/* Contact Section */
+.btn-whatsapp i {
+    font-size: 1.2em;
+    margin-right: 10px;
+}
+
 .contact-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
     margin-top: 40px;
+}
+
+.contact-form {
+    margin-top: 2em;
 }
 
 .contact-form input,
@@ -701,36 +716,12 @@ p {
     color: var(--secondary-blue);
 }
 
-.map-container {
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-.map-container iframe {
-    display: block;
-}
-
-/* Footer */
 .main-footer {
     background-color: #222;
     color: var(--white);
     text-align: center;
     padding: 30px 0;
     font-size: 0.9em;
-}
-.footer-links {
-    margin-bottom: 10px;
-    font-size: 1em;
-}
-.footer-links a {
-    color: var(--white);
-    margin: 0 8px;
-    text-decoration: underline;
-    transition: color 0.3s;
-}
-.footer-links a:hover {
-    color: var(--secondary-blue);
 }
 .footer-social {
     margin-bottom: 10px;
@@ -749,52 +740,15 @@ p {
     font-size: 0.95em;
 }
 
-/* Testimonial */
-.testimonial-box {
-    background: var(--white);
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    padding: 35px 30px;
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: left;
-}
-.testimonial-text {
-    font-size: 1.2em;
-    color: var(--primary-blue);
-    margin-bottom: 20px;
-    font-style: italic;
-}
-.testimonial-client {
-    display: flex;
-    align-items: center;
-}
-.testimonial-img {
-    border: 2px solid var(--secondary-blue);
-}
-
-/* Service Prices */
-.service-price {
-    font-size: 1.3em;
-    color: var(--secondary-blue);
-    font-weight: bold;
-    margin: 10px 0 18px 0;
-}
 
 /* --- RESPONSIVENESS (MEDIA QUERIES) --- */
-
-/* For Hero Section and general layout responsiveness */
 @media (max-width: 1200px) {
-  .hero-content {
-    margin-left: 0;
-    padding-left: 0;
-  }
+  /* No specific changes here. */
 }
 
 @media (max-width: 768px) {
-  /* Hero Section Mobile Adjustments */
   .hero-section {
-    min-height: 350px;
+    min-height: 100vh;
     padding: 0;
   }
   .hero-content {
@@ -803,14 +757,14 @@ p {
     margin-left: 0;
     max-width: 100%;
     padding-left: 0;
-    margin-top: -180px !important; /* Force much higher in mobile */
+    margin-top: -180px !important;
   }
   .hero-content h1 {
     font-size: 1.5em;
   }
   .hero-content p,
   .hero-content .hero-subtitle {
-    font-size: 1em;
+    font-size: 1.em;
   }
   .hero-btn {
     padding: 7px 22px;
@@ -818,13 +772,12 @@ p {
     margin-top: 14px;
   }
 
-  /* Navigation Mobile */
   .navbar {
     flex-direction: column;
     align-items: flex-start;
   }
   .nav-links {
-    display: none; /* Hide by default on mobile */
+    display: none;
     flex-direction: column;
     width: 100%;
     margin-top: 15px;
@@ -832,11 +785,11 @@ p {
     background-color: var(--white);
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     position: absolute;
-    top: 70px; /* Below the header */
+    top: 70px;
     left: 0;
     padding-bottom: 10px;
   }
-  .nav-links.active { /* Class to show it with JS */
+  .nav-links.active {
     display: flex;
   }
   .nav-links li {
@@ -848,29 +801,18 @@ p {
     display: block;
   }
   .hamburger {
-    display: flex; /* Show the hamburger on mobile */
+    display: flex;
     position: absolute;
     right: 20px;
     top: 25px;
   }
 
-  /* General Text & Layout Adjustments for smaller screens */
-  h2 {
-    font-size: 1.3em;
-  }
-  h3 {
-    font-size: 1.1em;
-  }
-  p,
-  .section-description,
-  .service-price,
-  .testimonial-text {
-    font-size: 0.98em;
-  }
+  h2 { font-size: 1.3em; }
+  h3 { font-size: 1.1em; }
+  p, .section-description { font-size: 0.98em; }
 
-  /* Content Wrapper adjustments */
   .content-wrapper {
-    flex-direction: column; /* Stack on small screens */
+    flex-direction: column;
     width: 100%;
     max-width: 100%;
     padding-left: 0;
@@ -887,14 +829,11 @@ p {
     overflow-wrap: break-word;
   }
 
-  /* Grid Adjustments for smaller screens */
   .grid-2-columns,
-  .services-grid,
   .contact-grid {
-    grid-template-columns: 1fr; /* Single column on small screens */
+    grid-template-columns: 1fr;
   }
 
-  /* Section Padding for smaller screens */
   .section-padded {
     padding: 60px 0;
   }
@@ -909,4 +848,22 @@ p {
 }
 .hamburger.open .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
+}
+
+/* --- Animate on Scroll Styles --- */
+.fade-in-element {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-element.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Optional: Add a slight delay to even-numbered items in a grid for a staggered effect */
+.grid-2-columns .fade-in-element:nth-child(even),
+.contact-grid .fade-in-element:nth-child(even) {
+    transition-delay: 0.2s;
 }

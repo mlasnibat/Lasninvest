@@ -2,21 +2,15 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>LR Capital - Inversiones y Asesoría Financiera</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts (ejemplo, puedes cambiar la fuente) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Revisa la última versión en Font Awesome CDN o descarga los archivos -->
-
-    <!-- Favicon (si tienes uno, cámbialo por el tuyo) -->
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
     <script>
-    // iOS detection: add a class to <html> for CSS targeting (runs ASAP and after DOMContentLoaded)
     (function addIOSClass() {
       var ua = window.navigator.userAgent;
       var iOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
@@ -57,7 +51,7 @@
 
     <!-- Sección Hero Mejorada -->
     <section class="hero-section" style="background-image: url('assets/images/hero-bg.jpg');">
-        <div class="hero-content">
+        <div class="hero-content fade-in-element">
             <h1>Descubre LR Capital</h1>
             <p class="hero-subtitle">Tu Asesor en Inversiones Confiable</p>
             <a href="#quienes-somos" class="hero-btn">Ver Más</a>
@@ -69,26 +63,21 @@
         <div class="sobre-nosotros-bg-oval"></div>
         <div class="container">
             <div class="sobre-nosotros-flex">
-                <div class="sobre-nosotros-col-img">
+                <div class="sobre-nosotros-col-img fade-in-element">
                     <img src="assets/images/ML.jpg" alt="ML Snibat" class="sobre-nosotros-img-ml">
                     <div class="sobre-nosotros-nombre" style="font-weight:600;font-size:1.08em;margin-top:0.7em;margin-bottom:0.2em;">Martin Lasnibat</div>
                     <p class="sobre-nosotros-tercero" style="margin-top:0.5em;">Fundador y asesor principal de LR Capital.</p>
                     <button class="hero-btn perfil-btn" id="abrirPerfilBtn" type="button" style="margin-top:0.7em;">Perfil</button>
-
-    <!-- Modal Perfil Fundador -->
-    <div id="modalPerfil" class="modal-perfil" style="display:none;">
-      <div class="modal-perfil-content">
-        <span class="modal-perfil-cerrar" id="cerrarPerfilBtn">&times;</span>
-        <img src="assets/images/ML2.jpg" alt="Martin Lasnibat" class="modal-perfil-img" style="width:120px;height:120px;border-radius:50%;object-fit:cover;margin-bottom:1em;">
-        <h3 style="margin-bottom:0.5em;">Martin Lasnibat</h3>
-        <p style="font-size:1em;line-height:1.5;">Fundador de LR Capital. Ingeniero Civil Industrial de la Pontificia Universidad Católica de Chile y asesor financiero con experiencia tanto en el rubro privado como independiente, gestión de portafolios y análisis cuantitativo. Apasionado por ayudar a sus clientes a alcanzar sus objetivos financieros con transparencia y dedicación.</p>
-      </div>
-    </div>
                 </div>
-                <div class="sobre-nosotros-col-text">
+                <div class="sobre-nosotros-col-text fade-in-element">
                     <h2>Sobre Nosotros</h2>
                     <p class="sobre-nosotros-principal">LR Capital se destaca como una empresa de asesoramiento en inversiones comprometida con ofrecer servicios personalizados que buscan retornos estables a largo plazo. Nuestro enfoque se basa en análisis constantes del mercado, utilizando tanto análisis fundamentales como cuantitativos con algoritmos de vanguardia.</p>
-                    <p class="sobre-nosotros-secundario">Nos diferenciamos al mantener un contacto continuo con nuestros clientes, comprendiendo profundamente sus necesidades e intereses financieros. En LR Capital, nos dirigimos a quienes buscan un servicio de asesoramiento en inversiones personalizado y transparente, con tarifas flexibles que combinan un fijo con un variable.</p>
+                    
+                    <button type="button" class="btn-diferencia" id="toggleDiferenciaBtn">¿Qué nos diferencia?</button>
+
+                    <div id="diferenciaContent" class="collapsible-content">
+                        <p class="sobre-nosotros-secundario">Nos diferenciamos al mantener un contacto continuo con nuestros clientes, comprendiendo profundamente sus necesidades e intereses financieros. En LR Capital, nos dirigimos a quienes buscan un servicio de asesoramiento en inversiones personalizado y transparente, con tarifas flexibles que combinan un fijo con un variable.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -98,19 +87,23 @@
     <!-- Sección ¿Qué Hacemos? -->
     <section id="que-hacemos" class="section-padded bg-light-gray">
         <div class="container">
-            <h2>¿Qué Hacemos?</h2>
-            <p class="section-description">Proporcionamos una amplia gama de servicios financieros, desde asesoría de inversión hasta gestión de cartera, siempre con un enfoque en la maximización de tus rendimientos y la minimización de riesgos.</p>
+            <h2 class="fade-in-element">¿Qué Hacemos?</h2>
+            <p class="section-description fade-in-element">Proporcionamos una amplia gama de servicios financieros, desde asesoría de inversión hasta gestión de cartera, siempre con un enfoque en la maximización de tus rendimientos y la minimización de riesgos.</p>
             <div class="grid-2-columns">
-                <div class="grid-item">
+                <div class="grid-item fade-in-element">
                     <div class="image-overlay-wrapper">
                         <img src="assets/images/que-hacemos-img2.jpg" alt="Gráficos financieros">
                         <div class="image-overlay"></div>
                     </div>
                     <h3>Gestión de Portafolios</h3>
-                    <p>Ofrecemos gestión profesional de portafolios, adaptada a perfiles de riesgo individuales.<br> La gestión se realiza mediante Interactive Brokers® el broker con la plataforma de comercio electrónico mas grande del mundo.<br>El Cliente tiene total control de su cuenta y activos, teniendo LR Capital solo el manejo de las inversiones, y el pago de comisiones se hace de manera directa y automática por la plataforma. De esta manera aseguramos tranquilidad y seguridad al cliente en el manejo de sus activos.</p>
-                    <img src="assets/images/ib-logo.png" alt="Interactive Brokers Logo" style="display:block;margin:14px auto 0 auto;max-width:120px;width:100%;height:auto;">
+                    <p>Ofrecemos gestión profesional de portafolios, adaptada a perfiles de riesgo individuales.</p>
+                    <button type="button" class="btn-gestion" id="toggleGestionBtn">¿Cómo se realiza la gestion?</button>
+                    <div id="gestionContent" class="collapsible-content">
+                        <p class="gestion-parrafo-oculto">La gestión se realiza mediante Interactive Brokers® el broker con la plataforma de comercio electrónico mas grande del mundo.<br>El Cliente tiene total control de su cuenta y activos, teniendo LR Capital solo el manejo de las inversiones, y el pago de comisiones se hace de manera directa y automática por la plataforma. De esta manera aseguramos tranquilidad y seguridad al cliente en el manejo de sus activos.</p>
+                        <img src="assets/images/ib-logo.png" alt="Interactive Brokers Logo" style="display:block;margin:14px auto 0 auto;max-width:120px;width:100%;height:auto;">
+                    </div>
                 </div>
-                <div class="grid-item">
+                <div class="grid-item fade-in-element">
                     <div class="image-overlay-wrapper">
                         <img src="assets/images/que-hacemos-img1.jpg" alt="Reunión de negocios">
                         <div class="image-overlay"></div>
@@ -122,31 +115,21 @@
         </div>
     </section>
 
-
-    <!-- Sección Testimonio de Cliente -->
-    <section class="section-padded bg-light-gray">
-        <div class="container">
-            <h2>Testimonio</h2>
-            <div class="testimonial-box">
-                <p class="testimonial-text">“LR Capital ha sido clave en mi estrategia de inversión, brindándome asesoramiento experto y resultados consistentes.”</p>
-                <div class="testimonial-client">
-                    <img src="assets/images/testimonio-maria.jpg" alt="María Fernández" class="testimonial-img" style="width:60px;height:60px;border-radius:50%;object-fit:cover;margin-right:15px;">
-                    <div>
-                        <strong>María Fernández</strong><br>
-                        Cliente de LR Capital
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Sección Contacto -->
     <section id="contacto" class="section-padded bg-dark-blue text-white">
         <div class="container">
-            <h2>Contacto</h2>
+            <h2 class="fade-in-element">Contacto</h2>
             <div class="contact-grid">
-                <div class="contact-form-area">
-                    <form class="contact-form" action="https://formspree.io/f/your_form_id" method="POST">
+                <div class="contact-form-area fade-in-element">
+                    <!-- NEW: Introductory text and WhatsApp button -->
+                    <p class="contact-intro-text">
+                        ¡Contáctanos! Puedes escribir directamente a el correo que aparece más abajo, a el número directamente por Whatsapp, el cual al apretar el boton que aparece aqui te enviara directamente al chat. Si prefieres tambien puedes dejar tus datos en la forma de abajo y te contactaremos.
+                    </p>
+                    <a href="https://wa.me/56992284838" class="btn-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Chatear por WhatsApp
+                    </a>
+                    
+                    <form class="contact-form" action="https://formspree.io/f/xqaboblk" method="POST">
                         <input type="text" name="name" placeholder="Nombre completo" required>
                         <input type="email" name="email" placeholder="Correo electrónico" required>
                         <input type="tel" name="phone" placeholder="Número de teléfono (Opcional)">
@@ -155,20 +138,13 @@
                     </form>
                     <p class="form-disclaimer">*Este formulario es un ejemplo y requerirá un servicio de backend como Formspree para funcionar.</p>
                 </div>
-                <div class="contact-info-area">
+                <div class="contact-info-area fade-in-element">
                     <h3>Información de Contacto</h3>
                     <p><i class="fas fa-map-marker-alt"></i> Dirección: Santiago, Chile</p>
                     <p><i class="fas fa-phone"></i> Teléfono: +56992284838</p>
                     <p><i class="fas fa-envelope"></i> Email: <a href="mlasnibat@gmail.com" style="color:#fff;text-decoration:underline;">mlasnibat@gmail.com</a></p>
                     <div class="social-links">
-                        <a href="https://www.facebook.com/wix" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/wix" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://x.com/wix" target="_blank"><i class="fab fa-x-twitter"></i></a>
-                        <a href="https://www.tiktok.com/@wix" target="_blank"><i class="fab fa-tiktok"></i></a>
-                    </div>
-                    <div class="map-container">
-                        <!-- Reemplaza con tu propio iframe de Google Maps -->
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d6366.570521650293!2d-70.57835741748723!3d-33.40964952377894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses-419!2ses!4v1751643342081!5m2!1ses-419!2ses" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
@@ -178,41 +154,56 @@
     <!-- Footer -->
     <footer class="main-footer">
         <div class="container">
-            <div class="footer-links">
-                <a href="#" target="_blank">Política de Privacidad</a> |
-                <a href="#" target="_blank">Declaración de Accesibilidad</a> |
-                <a href="#" target="_blank">Términos y Condiciones</a> |
-                <a href="#" target="_blank">Política de Reembolso</a>
-            </div>
             <div class="footer-social">
-                <a href="https://www.facebook.com/wix" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/wix" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://x.com/wix" target="_blank"><i class="fab fa-x-twitter"></i></a>
-                <a href="https://www.tiktok.com/@wix" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
             </div>
-            <p>&copy; 2025 LR Capital.</p>
+            <p>© 2025 LR Capital.</p>
         </div>
     </footer>
 
+    <!-- Modal Perfil Fundador -->
+    <div id="modalPerfil" class="modal-perfil" style="display:none;">
+      <div class="modal-perfil-content">
+        <span class="modal-perfil-cerrar" id="cerrarPerfilBtn">×</span>
+        <img src="assets/images/ML2.jpg" alt="Martin Lasnibat" class="modal-perfil-img" style="width:120px;height:120px;border-radius:50%;object-fit:cover;margin-bottom:1em;">
+        <h3 style="margin-bottom:0.5em;">Martin Lasnibat</h3>
+        <p style="font-size:1em;line-height:1.5;">Fundador de LR Capital. Ingeniero Civil Industrial de la Pontificia Universidad Católica de Chile y asesor financiero con experiencia tanto en el rubro privado como independiente, gestión de portafolios y análisis cuantitativo. Apasionado por ayudar a sus clientes a alcanzar sus objetivos financieros con transparencia y dedicación.</p>
+      </div>
+    </div>
+
     <script src="script.js"></script>
 <script>
+// Global variable to store scroll position
+let scrollPosition = 0;
+
 // Modal Perfil Fundador
 const abrirPerfilBtn = document.getElementById('abrirPerfilBtn');
 const modalPerfil = document.getElementById('modalPerfil');
 const cerrarPerfilBtn = document.getElementById('cerrarPerfilBtn');
+
 if (abrirPerfilBtn && modalPerfil && cerrarPerfilBtn) {
   abrirPerfilBtn.onclick = function() {
+    scrollPosition = window.scrollY;
     modalPerfil.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.top = -scrollPosition + 'px';
+    document.body.style.width = '100%';
   };
-  cerrarPerfilBtn.onclick = function() {
+
+  const closeModal = function() {
     modalPerfil.style.display = 'none';
-    document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    setTimeout(() => {
+      window.scrollTo(0, scrollPosition); 
+    }, 1); 
   };
+
+  cerrarPerfilBtn.onclick = closeModal;
   window.onclick = function(event) {
     if (event.target === modalPerfil) {
-      modalPerfil.style.display = 'none';
-      document.body.style.overflow = '';
+      closeModal();
     }
   };
 }
