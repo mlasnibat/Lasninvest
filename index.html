@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>LR Capital - Inversiones y Asesoría Financiera</title>
     <link rel="stylesheet" href="style.css">
     <!-- Google Fonts (ejemplo, puedes cambiar la fuente) -->
@@ -15,6 +15,23 @@
 
     <!-- Favicon (si tienes uno, cámbialo por el tuyo) -->
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <script>
+    // iOS detection: add a class to <html> for CSS targeting (runs ASAP and after DOMContentLoaded)
+    (function addIOSClass() {
+      var ua = window.navigator.userAgent;
+      var iOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+      if (iOS) {
+        document.documentElement.classList.add('ios-device');
+      }
+    })();
+    document.addEventListener('DOMContentLoaded', function() {
+      var ua = window.navigator.userAgent;
+      var iOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+      if (iOS) {
+        document.documentElement.classList.add('ios-device');
+      }
+    });
+    </script>
 </head>
 <body>
 

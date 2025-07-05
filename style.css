@@ -1,3 +1,30 @@
+
+/* --- SOBRE NOSOTROS MOBILE OPTIMIZADO --- */
+@media (max-width: 600px) {
+  .sobre-nosotros-section {
+    position: relative !important;
+    overflow: hidden !important;
+    padding-top: 7em !important;
+    padding-bottom: 2em !important;
+    min-height: 420px !important;
+    z-index: 1;
+  }
+ 
+  .sobre-nosotros-principal,
+  .sobre-nosotros-secundario,
+  #que-hacemos .section-description,
+  #que-hacemos .grid-item p {
+    font-size: 0.85em !important;
+  }
+  .contact-grid, .contact-form {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* JS to add -webkit-touch-callout to html on iOS */
 @media (min-width: 901px) {
   .modal-perfil-content {
     position: relative;
@@ -77,38 +104,7 @@
     margin-bottom: 0.7em !important;
   }
 }
-@media (max-width: 600px) {
-  .modal-perfil-content {
-    width: 80vw !important;
-    max-width: 170px !important;
-    min-width: 90px !important;
-    padding: 0.5em 0.2em 0.5em 0.2em !important;
-    box-sizing: border-box !important;
-    font-size: 0.60em !important;
-    margin-top: 70px !important;
-    height: 60vh !important;
-    overflow-y: auto !important;
-    border-radius: 18px !important;
-    background: #fff !important;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.18) !important;
-    position: absolute !important;
-    left: 30px !important;
-    right: auto !important;
-    transform: none !important;
-  }
-  .modal-perfil {
-    padding-top: 10vh;
-    align-items: flex-start;
-  }
-  .modal-perfil {
-    padding-top: 3vh;
-    align-items: flex-start;
-  }
-  .perfil-btn {
-    margin-top: 0.5em !important;
-    margin-bottom: 0.5em !important;
-  }
-}
+/* (Eliminadas reglas móviles duplicadas para evitar conflictos) */
 .sobre-nosotros-nombre {
   margin-bottom: 0.2em;
 }
@@ -238,54 +234,19 @@
     width: 100%;
     padding: 0 8px;
   }
-  .sobre-nosotros-bg-oval {
-    border-bottom-left-radius: 50% 30%;
-    border-bottom-right-radius: 50% 30%;
-    height: 1200px; /* Solo móvil/tablet: más alto para cubrir todo */
-    min-height: 900px;
-    max-height: none;
+  
+}
+
+
+/* Solo iOS: reducir font-size base aún más (fuera del media query para máxima prioridad) */
+@media (max-width: 600px) and (hover: none) and (pointer: coarse) {
+  @supports (-webkit-touch-callout: none) {
+    html {
+      font-size: 13px !important;
+    }
   }
 }
-@media (max-width: 600px) {
-  .sobre-nosotros-bg-oval {
-    height: 1200px; /* Solo móvil/tablet: más alto para cubrir todo */
-    min-height: 900px;
-    max-height: none;
-  }
-  .sobre-nosotros-col-img {
-    max-width: 100%;
-  }
-  .sobre-nosotros-img-ml {
-    max-width: 100%;
-    display: block;
-  }
-  .sobre-nosotros-col-text {
-    padding: 0 2px;
-  }
-  .sobre-nosotros-col-text h2 {
-    font-size: 1.2em;
-  }
-  .sobre-nosotros-principal {
-    font-size: 0.98em;
-  }
-  .sobre-nosotros-secundario {
-    font-size: 0.90em;
-    margin-left: 1em;
-    width: 95%;
-  }
-  .sobre-nosotros-tercero {
-    font-size: 0.80em;
-  }
-}
-@media (max-width: 768px) {
-  .sobre-nosotros-bg-oval {
-    border-bottom-left-radius: 50% 90%;
-    border-bottom-right-radius: 50% 90%;
-    min-width: 200vw;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
+
 /* Hero alineado con el logo y el contenido */
 .hero-section {
     display: flex;
@@ -474,6 +435,8 @@ body {
     color: var(--text-dark);
     zoom: 1.3; /* Slight zoom for the whole page */
     background-color: var(--white);
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 
 a {
@@ -937,7 +900,7 @@ p {
     .section-padded {
         padding: 60px 0;
     }
-}
+
 
 /* Animación Hamburger (opcional, para JS) */
 .hamburger.open .bar:nth-child(1) {
@@ -948,4 +911,60 @@ p {
 }
 .hamburger.open .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
+}
+
+/* --- ANDROID / GENERAL MOBILE OVAL CONFIGURATION (FALLBACK) --- */
+/* This defines the default oval shape for all mobile devices,
+   including Android, unless specifically overridden by the iOS rule. */
+@media (max-width: 900px) {
+  .sobre-nosotros-bg-oval {
+    /* Common mobile properties (may override PC, but won't be overridden by iOS) */
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 1100px;
+    min-height: 900px;
+    max-height: 1500px;
+    background: #e0ddd6;
+    z-index: 0;
+    pointer-events: none;
+    overflow-x: hidden;
+    display: block;
+
+    /* Android / General Mobile SPECIFIC properties (wider oval) */
+    width: 200vw;
+    min-width: 200vw;
+    max-width: 200vw;
+    border-bottom-left-radius: 50% 25%;
+    border-bottom-right-radius: 50% 25%;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    /* IMPORTANT: NO !important HERE. This is what allows iOS to override. */
+  }
+}
+
+/* --- iOS SPECIFIC OVAL CONFIGURATION (FOR PRODUCTION) --- */
+/* This targets actual iOS devices (iPhone, iPad) and overrides the general mobile oval.
+   It MUST come AFTER any general mobile oval rules. */
+@media (max-width: 900px) and (hover: none) and (pointer: coarse) {
+  @supports (-webkit-touch-callout: none) {
+    .sobre-nosotros-bg-oval {
+      /* iOS-specific width and border-radius. Use !important to ensure override. */
+      width: 100vw !important; /* Narrower for iOS */
+      min-width: 100vw !important;
+      max-width: 100vw !important;
+      height: 1250px;
+      min-height: 900px;
+      max-height: 1500px;
+      border-bottom-left-radius: 50% 6% !important; /* Less pronounced curve for iOS */
+      border-bottom-right-radius: 50% 6% !important;
+      /* If iOS needs a different height, add it here with !important: */
+      /* height: XXXpx !important; */
+    }
+    /* Your existing iOS font-size hack for html - KEEP THIS AS IS */
+    html {
+      font-size: 13px !important;
+    }
+  }
 }
